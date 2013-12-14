@@ -1,0 +1,12 @@
+@media (max-width: 979px){
+
+.navbar-inverse .nav-collapse .nav>li>a, .navbar-inverse .nav-collapse .dropdown-menu a {
+color: #fff;
+}
+
+.navbar-inverse .nav-collapse .nav>li>a:hover, .navbar-inverse .nav-collapse .nav>li>a:focus, .navbar-inverse .nav-collapse .dropdown-menu a:hover, .navbar-inverse .nav-collapse .dropdown-menu a:focus {
+background-color: #4AD0E2;
+}
+
+
+}

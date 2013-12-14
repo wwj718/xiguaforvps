@@ -10,7 +10,7 @@
 
 {% block title %}
 
-<div class="link-item clearfix"> <!--每个条目-->
+<div id="detail_title" class="link-item clearfix"> <!--每个条目-->
     {% if not profile_user %}{% rating_for object %}{% endif %}<!--rating_for用来排序的-->
     <div class="link-detail{% if object.rating_sum < 0 %} link-negative{% endif %}"><!--小于0的话给出其他样式-->
         <h2>

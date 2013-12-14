@@ -40,12 +40,17 @@ border-bottom-width: 5px;
 
 .navbar-inverse .navbar-inner{
 	background-color: #80c3f7;
-	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2575e7),to(#2575e7));
+	background-image: -webkit-gradient(linear, 0 100%, 0 0, from(#52c3dd), to(#0099CC));
+	background-image: -webkit-linear-gradient(#52c3dd, #0099CC);
+	background-image: -moz-linear-gradient(#52c3dd, #0099CC);
+	background-image: -o-linear-gradient(#52c3dd, #0099CC);
+	background-image: linear-gradient(#52c3dd, #0099CC);
 	border-color: #fff;
 }
 
 .navbar-inverse .nav > li > a:focus, .navbar-inverse .nav > li > a{
 	color: #fff;
+	font-weight:900;
 }
 
 .navbar-inverse .navbar-search .search-query {
@@ -54,7 +59,6 @@ background-color: #fff;
 border-color: #111111;}
 
 #headernav .navbar-inner{
-
 }
 
 .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
@@ -69,3 +73,8 @@ width: 880px;}  /*导航条宽度*/
 .footer a img {
 	visibility: hidden;
 }
+
+#detail_title{
+	background-color: #CCEBE9;
+}
+
