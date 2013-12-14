@@ -1,0 +1,37 @@
+# Website we2eat goes here.
+
+server {
+    listen 7000;
+
+    server_name www.we2eat.com we2eat.com;
+    
+
+    charset utf-8;
+    
+    access_log /home/wwj/xigua/access.log;
+    error_log /home/wwj/xigua/error.log;
+
+    root /home/wwj/xigua/xigua/;
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass 127.0.0.1:7002;
+    }
+
+    error_page 404 /templates/404.html;
+
+    error_page 500 502 503 504 /templates/500.html;
+
+    location /static/ {
+        alias /home/wwj/xigua/statics/;
+    }
+
+    location /media/ {
+        alias /home/wwj/xigua/media/;
+    }
+
+    location /templates/ {
+        alias /home/wwj/xigua/xigua/main/templates/;
+        index index.html;
+    }    
+}

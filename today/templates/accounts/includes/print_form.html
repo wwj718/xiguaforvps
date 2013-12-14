@@ -1,0 +1,45 @@
+
+  <form  action="/onepage/reportform" method="get" accept-charset="utf-8">
+    <fieldset>
+      <div id="legend" class="">
+        <legend class="">表单名</legend>
+      </div>
+      <div class="control-group">
+        <!-- Select Basic -->  
+        <label class="control-label">打印页数</label>
+        <div class="controls">
+          <select name="num" class="input-xlarge">
+            <option>10</option>
+            <option>20</option>
+            <option>30</option>
+            <option>50</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="control-group">
+          <label class="control-label">打印类型</label>
+          <div class="controls">
+            <!-- Inline Radios -->
+            <label class="radio inline">
+              <input type="radio" value="hot" checked="checked" name="group">
+              最热门
+            </label>
+            <label class="radio inline">
+              <input type="radio" value="time" name="group">
+              最新
+            </label>
+          </div>        
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"></label>
+
+        <!-- Button -->  
+        <div class="controls">
+          <button class="btn  btn-primary" type="submit"><i class="icon-print icon-white"></i>  打印</button>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>

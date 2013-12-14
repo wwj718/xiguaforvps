@@ -1,0 +1,20 @@
+{% load mezzanine_tags i18n future staticfiles %}
+<div class="span3 bottomborder" >
+<a class="btn btn-large btn-primary" href="{% url "link_create" %}">+给食堂提建议</a>
+</div>
+
+<div class="span3 bottomborder" >
+	<h3>分享给小伙伴们</h3>
+	<p>{% include "include/baidushare.html" %}</p>
+</div>
+
+<div class="span3 bottomborder" >
+	<h3>二维码登录</h3>
+<img src="{{ STATIC_URL }}/img/ewm.jpg" alt=""></div>
+
+<div class="span3 bottomborder" >
+	<h3>联系我们</h3>
+	<p><span>邮箱:</span><a>1162025955@qq.com</a></p>
+	<p><span>邮箱:</span><a>tulpar008@gmail.com</a></p>
+
+</div>

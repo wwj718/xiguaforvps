@@ -1,0 +1,125 @@
+
+  <form  action="/onepage/reportform" method="get" accept-charset="utf-8">
+    <fieldset>
+      <div id="legend" class="">
+        <legend class="">表单名</legend>
+      </div>
+
+
+<!--      <div class="control-group">
+          <label class="control-label">范围选择</label>
+          <div class="controls">
+            <label class="radio inline">
+              <input type="radio" value="hot" checked="checked" name="fw">
+              全部
+            </label>
+            <label class="radio inline">
+              <input type="radio" value="hot" checked="checked" name="fw">
+              一餐厅
+            </label>
+          </div>        
+      </div>
+-->
+      <div class="control-group">
+        <!-- Select Basic -->  
+        <label class="control-label">打印范围选择</label>
+        <div class="controls">
+          <select id="fw" name="fw" class="input-xlarge">
+            <option>所有</option>
+            <option>清真餐厅</option>
+            <option>一餐厅</option>
+            <option>二餐厅</option>
+            <option>三餐厅</option>
+            <option>聚博园</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="control-group">
+        <!-- Select Basic -->  
+        <label class="control-label">打印页数</label>
+        <div class="controls">
+          <select id="num" name="num" class="input-xlarge">
+            <option>10</option>
+            <option>20</option>
+            <option>30</option>
+            <option>50</option>
+          </select>
+        </div>
+      </div>
+
+
+
+      <div class="control-group">
+          <label class="control-label">打印类型</label>
+          <div class="controls">
+            <!-- Inline Radios -->
+            <label class="radio inline">
+              <input type="radio" value="hot" checked="checked" name="order">
+              最热门
+            </label>
+            <label class="radio inline">
+              <input type="radio" value="time" name="order">
+              最新
+            </label>
+          </div>        
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"></label>
+
+        <!-- Button -->  
+        <div class="controls">
+          <a id="printbotton" class="btn  btn-primary"><i class="icon-print icon-white"></i>  打印</a>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+
+  <script type="text/javascript">
+  jQuery(document).ready(function($) {
+    $("#printbotton").click(function(event) {
+      /* Act on the event */
+      num=$("#num").val()  /*nice*/
+      fw=$("#fw").val()  /*nice*/      
+      order=$('input[name="order"]:checked').val();
+
+      /*先按食堂分，五个食堂分为5类*/
+      if (fw=="所有") {
+        if (order=="time") {location.href = "/onepage/reportform/canteen/newest/"+num;};
+        if (order=="hot") {location.href = "/onepage/reportform/canteen/"+num;}//默认最热,保持清晰而不是最短;
+
+        };  //实现跳转
+      if (fw=="清真餐厅") {
+        //范例
+        if (order=="time") {location.href = "/onepage/reportform/canteen/newest/hc/"+num;};
+        if (order=="hot") {location.href = "/onepage/reportform/canteen/hc/"+num;};//默认最热,保持清晰而不是最短;
+
+      };
+      if (fw=="一餐厅") {
+        if (order=="time") {location.href = "/onepage/reportform/canteen/newest/yc/"+num;};
+        if (order=="hot") {location.href = "/onepage/reportform/canteen/yc/"+num;};//默认最热,保持清晰而不是最短;
+
+      };
+      if (fw=="二餐厅") {
+        if (order=="time") {location.href = "/onepage/reportform/canteen/newest/ec/"+num;};
+        if (order=="hot") {location.href = "/onepage/reportform/canteen/ec/"+num;};//默认最热,保持清晰而不是最短
+
+      };
+      if (fw=="三餐厅") {
+        if (order=="time") {location.href = "/onepage/reportform/canteen/newest/sc/"+num;};
+        if (order=="hot") {location.href = "/onepage/reportform/canteen/sc/"+num;};//默认最热,保持清晰而不是最短
+
+      };
+      if (fw=="聚博园") {
+        if (order=="time") {location.href = "/onepage/reportform/canteen/newest/jby/"+num;};
+        if (order=="hot") {location.href = "/onepage/reportform/canteen/jby/"+num;};//默认最热,保持清晰而不是最短
+
+      };
+      
+
+    });
+  });
+  </script>

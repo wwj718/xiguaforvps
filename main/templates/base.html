@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}">
+    {% load mezzanine_tags i18n future staticfiles %}
+<head>
+
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+    <meta name="description" content="{% block meta_description %}{% endblock %}">
+    <title>{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %}{{ settings.SITE_TITLE }}{% endif %}</title> 
+    <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico">
+
+    <!--<style>
+    @import url("http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic");
+@import url(http://fonts.googleapis.com/css?family=Risque);
+</style>
+-->
+<!--
+<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.css">
+<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-responsive.css">
+-->
+
+<link href="http://libs.baidu.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+
+{% compress css %}
+
+<link rel="stylesheet" href="{{ STATIC_URL }}css/mezzanine.css">
+<!-- <link rel="stylesheet" href="{{ STATIC_URL }}css/flat-ui.css">
+-->
+<link rel="stylesheet" href="{{ STATIC_URL }}css/drum.css">
+<link rel="stylesheet" href="{{ STATIC_URL }}css/index.css">
+
+{% endcompress %}
+
+<script src="http://libs.baidu.com/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://libs.baidu.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="http://cdn.bootcss.com/jquery.pjax/1.2.0/jquery.pjax.min.js"></script>
+<!--
+<script src="{{ STATIC_URL }}mezzanine/js/{{ settings.JQUERY_FILENAME }}"></script>
+<script src="{{ STATIC_URL }}js/bootstrap.js"></script>
+<script src="{{ STATIC_URL }}js/jquery.pjax.js"></script>
+-->
+
+{% compress js %}
+<script src="{{ STATIC_URL }}js/bootstrap-extras.js"></script>
+<script src="{{ STATIC_URL }}js/drum.js"></script>
+{% endcompress %}
+
+{% block extra_head %}{% endblock %}
+</head>
+<body>
+
+
+{% include "include/headernav.html" %}
+{% comment %}
+
+{% block breadcrumb %}
+<ul class="breadcrumb">
+  <li><a href="/">首页</a> <span class="divider">/</span></li>
+</ul>
+{% endblock breadcrumb %}
+    
+{% endcomment %}
+<div class="container main">
+{% nevercache %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }}" data-alert="alert">
+    <a class="close" href="#" onclick="$(this).parent().fadeOut('fast'); return false;">×</a>
+    {{ message }}
+</div>
+{% endfor %}
+{% endnevercache %}
+<h1>{% block title %}{% endblock %}</h1>
+</div>
+
+<div id="content" class="container main">
+<div class="row">
+    <div  class="span8 offset1">{% block main %}{% endblock %}</div>
+    <div id="right_nav" class="span3 ">{% include "include/right_nav.html" %}</div>
+</div>
+</div>
+
+<footer class="footer ">
+<div >
+    <p>power by <a target="blank" href="http://wwj718.github.com">wwj</a> & <a href="#">ymj</a></p>
+    {% include "include/baidufenxi.html" %}
+</div>
+</footer>
+
+</body>
+</html>

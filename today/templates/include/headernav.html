@@ -1,0 +1,38 @@
+{% load mezzanine_tags i18n future staticfiles %}
+
+<div id="headernav" class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          {% if settings.SITE_TITLE %}
+          <a class="brand" href="/">{{ settings.SITE_TITLE }}</a>
+          {% endif %}
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              
+              <li{% if request.path == link_list_best %} class="active"{% endif %}>
+                    <a href="{% url "link_list_best" %}">建议</a>
+              </li>
+              <li><a href="/onepage/aboutus/">关于我们</a></li>
+              <li><a class="no-pjax" href="/onepage/messageboard/">留言板</a></li>
+              <li><a class="no-pjax" href="/onepage/hwh/">伙委会</a></li>
+            </ul>
+
+            <div class="pull-left">
+                <a class="btn btn-small btn-success no-pjax" href="{% url "link_create" %}">+给食堂提建议</a>
+            </div>
+
+
+        {% search_form "main.Link" %}
+        {% nevercache %}
+        {% include "accounts/includes/user_panel_nav.html" %}
+        {% endnevercache %}
+
+          </div>
+        </div>
+      </div>
+    </div>

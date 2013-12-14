@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% comment %}
+{% block meta_title %}建议{% endblock %}
+{% endcomment %}
+{% block title %}建议{% endblock %}
+
+{% load mezzanine_tags %}
+
+{% block breadcrumb %}
+<!-- <ul class="breadcrumb">
+  <li><a href="/">首页</a> <span class="divider">/</span></li>
+  <li><a href="#">食堂建议</a> <span class="divider">/</span></li>
+  <li class="active">建议</li>
+</ul> -->
+{% endblock breadcrumb %}
+
+{% block main %}
+<form method="post">
+<fieldset>{% fields_for form %}</fieldset>
+<div class="actions">
+    <input class="btn btn-success btn-large" type="submit" value="提建议">
+</div>
+
+</form>
+{% endblock %}

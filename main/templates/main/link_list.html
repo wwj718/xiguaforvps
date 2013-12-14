@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load mezzanine_tags rating_tags drum_tags future %}
+
+{% comment %}
+{% block meta_title %}{{ title|default:"Home" }}{% endblock %}
+{% block title %}{{ title }}{% endblock %} 
+{% endcomment %}
+
+{% comment %}
+{% block breadcrumb %}
+<ul class="breadcrumb">
+  <li><a href="/">首页</a> <span class="divider">/</span></li>
+  <li><a href="#">食堂建议</a> <span class="divider">/</span></li>
+  <li class="active">当前</li>
+</ul>
+{% endblock breadcrumb %}
+{% endcomment %}
+
+{% block main %}
+{% include "include/nav.html" %}
+
+
+{% for link in object_list %} <!--排序在这里控制-->
+<div class="link-item clearfix"> <!--每个条目-->
+    {% if not profile_user %}{% rating_for link %}{% endif %}<!--rating_for用来排序的-->
+    <div class="link-detail{% if link.rating_sum < 0 %} link-negative{% endif %}"><!--小于0的话给出其他样式-->
+        <h2>
+            <a href="{{ link.get_absolute_url }}">{{ link.title }}</a>
+            {# <span class="domain">({{ link.domain }})</span> #}<!--链接-->
+        </h2>
+      
+        for <strong>{{link|displayName:'canteen'}}</strong>| 
+        by <a class="profile" href="{% url "profile" link.user.username %}">{{ link.user.profile }}</a>
+        {{ link.publish_date|timesince }} 之前 |
+        <a class="comments" href="{{ link.get_absolute_url }}#pl">{# {{ link.comments_count }} #}<span class="ds-thread-count" data-thread-key="link/{{link.id}}" data-count-type="comments"></span>{# {{ link.comments_count|pluralize }} #} </a>
+
+
+
+<!-- 多说js加载开始，一个页面只需要加载一次 获取评论数-->
+    </div>
+</div>
+{% empty %}
+<p>{{ no_data }}</p>
+{% endfor %}
+
+{% pagination_for object_list "page" "pjax" %}  <!--ajax 的实现部分？-->
+
+{% include "include/duoshuopl.html" %}
+
+{% endblock %}

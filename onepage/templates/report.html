@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h2>报表</h2>
+<ul class="aboutus">
+	<li>对学校食堂进行监督</li>
+</ul>
+
+<hr>
+<h2>打印报表</h2>
+<form action="/onepage/reportform" method="get" accept-charset="utf-8">
+	最新：<input type="radio" checked="checked" name="order" value="time" /> | 最热门：<input type="radio" name="order" value="hot" />
+	打印数量：<input type="radio" checked="checked" name="num" value="10" />|<input type="radio" name="num" value="20" />
+
+	<input class="btn btn-large btn-primary" type="submit" name="" value="">
+</form>
+{% endblock %}

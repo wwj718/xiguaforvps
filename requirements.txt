@@ -1,0 +1,7 @@
+mezzanine==1.4.10
+django-compressor
+django-extensions
+feedparser
+gunicorn
+psycopg2
+python-memcached

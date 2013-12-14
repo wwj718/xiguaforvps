@@ -1,0 +1,20 @@
+{% load mezzanine_tags i18n future staticfiles %}
+
+
+<div>
+    <ul class="nav nav-pills">
+      <li class=""><a href="{% url "link_list_best" %}">最佳建议</a></li>
+      <li><a href="{% url "link_list_latest" %}">最新建议</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">食堂<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="/canteen/hc">清真餐厅</a></li>
+          <li><a href="/canteen/yc">一餐厅</a></li>
+          <li><a href="/canteen/ec">二餐厅</a></li>
+          <li><a href="/canteen/sc">三餐厅</a></li>
+          <li><a href="/canteen/jby">聚博园</a></li>
+          <li><a href="/canteen/other">未分类</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>

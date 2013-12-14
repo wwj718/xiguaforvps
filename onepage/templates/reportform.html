@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load mezzanine_tags rating_tags drum_tags future %}
+
+{% block extra_head %}
+<!--获取评论的数目，去掉其余东西-->
+
+{% endblock %}
+
+{% block main %}
+<h2>报表</h2>
+
+{% for link in object_list %}
+ <p><span class="badge badge-info">{{forloop.counter}}</span>  题目：{{ link.title }} | 餐厅：{{link|displayName:'canteen'}} | 热度：{{ link.rating_sum }}</p>  <!--多看文档,多优雅的解决方案！！！-->
+<p>内容:{{ link.description }}</p>
+<hr>
+{% endfor %}
+<!--存在一个问题，default从0开始-->
+
+{% endblock %}
+
+

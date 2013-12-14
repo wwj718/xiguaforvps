@@ -1,0 +1,34 @@
+{% load i18n mezzanine_tags comment_tags %}
+<div id="comments">
+<h3>{% trans "Comments" %}</h3>
+
+
+<script>
+$(function() {
+    $('.reply').click(function() {
+        $('.reply-form').hide();
+        $(this).next('.reply-form').toggle();
+    });
+});
+</script>
+
+
+
+<style>.input_id_honeypot {display:none !important;}</style>
+{% comment_thread object_for_comments %}
+{% if request.user.is_staff %}
+<h3> 回复 </h3>
+<form method="post" id="comment" action="{{ comment_url }}#comment">
+    {% if not request.POST.replied_to %}
+    {% fields_for posted_comment_form %}
+    {% else %}
+    {% fields_for unposted_comment_form %}
+    {% endif %}
+    <div class="form-actions">
+        <input class="btn btn-primary btn-large" type="submit" value="{% trans "Comment" %}">
+    </div>
+</form>
+
+{%endif%} 
+
+</div>
